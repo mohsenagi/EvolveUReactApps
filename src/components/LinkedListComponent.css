@@ -1,0 +1,40 @@
+.LinkedListCntroller {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.allButtons {
+    border-radius: 3px;
+    margin: 10px 2px 5px 2px;
+    height: 23px;
+    background-color: rgb(145, 196, 255);
+    font-size: calc(11px + 4 * ((100vw - 300px) / 1300));
+    border: none;
+}
+
+#subject,
+#amount {
+    margin: 2px;
+    min-height: 25px;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(179, 214, 255);
+    font-size: calc(11px + 4 * ((100vw - 300px) / 1300));
+    padding: 0px 2px 0px 2px;
+}
+
+.allNodes {
+    white-space: pre-wrap;
+    text-align: center;
+    font-style: italic;
+    margin: 40px 0 0 0;
+    font-size: calc(14px + 4 * ((100vw - 300px) / 1300));
+}
+
+.currentNode {
+    font-size: calc(20px + 4 * ((100vw - 300px) / 1300));
+}

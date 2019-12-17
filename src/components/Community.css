@@ -1,0 +1,222 @@
+.CityandCommunity {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#leftSide {
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: start;
+    align-content: start;
+    justify-self: start;
+}
+
+#inputsContainer {
+    height: 55px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    justify-items: center;
+}
+#rightSide {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: start;
+    align-items: start;
+    padding: 0px 20px 0px 0px;
+}
+
+h2 {
+    margin-top: 0px;
+}
+
+.addNew {
+    width: 40%;
+    max-width: 120px;
+    border-radius: 3px;
+    margin: 3px 0px 18px 0px;
+    height: 23px;
+    background-color: rgb(145, 196, 255);
+    font-size: calc(9px + 4 * ((100vw - 300px) / 1300));
+    border: none;
+}
+.addNew:hover {
+    cursor: pointer;
+}
+
+#input1,
+#input2,
+#input3,
+#input4 {
+    width: 95%;
+    margin: 2px;
+    max-width: 300px;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(179, 214, 255);
+    font-size: calc(9px + 4 * ((100vw - 300px) / 1300));
+    padding: 0px 2px 0px 2px;
+}
+
+.extra {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    justify-items: center;
+}
+
+.extraButtons{
+    width: 97%;
+    border-radius: 3px;
+    margin: 5px 0 18px 0;
+    font-size: calc(10px + 4 * ((100vw - 300px) / 1300));
+    border: none;
+    padding: 0;
+    background-color: rgb(168, 255, 233);
+}
+
+.extraButtons:hover {
+    cursor: pointer;
+}
+
+#display {
+    margin: 0px 50px 0px 50px;
+    white-space: pre-line;
+    font-size: calc(12px + 4 * ((100vw - 300px) / 1300));
+    height: 100px;
+}
+
+.wholeCity {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#input5 {
+    margin: 10px 0px 3px 0px;
+    font-size: calc(9px + 4 * ((100vw - 300px) / 1300));
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background-color: rgb(209, 206, 255);
+    border: none;
+    border-radius: 3px;
+    padding: 0px 2px 0px 2px;
+}
+ #input6 {
+    font-size: calc(9px + 4 * ((100vw - 300px) / 1300));
+    grid-column-start: 2;
+    grid-column-end: 3;
+    width: 97%;
+    min-height: 20px;
+    margin: 5px 0px 5px 0px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(195, 191, 255);
+    padding: 0px 2px 0px 2px;
+ }
+
+.moveIn,
+.moveOut {
+    margin: 3px 2px 10px 2px;
+    background-color: rgb(189, 185, 255);
+    font-size: 13px;
+    border: none;
+    border-radius: 3px;
+    font-size: calc(9px + 4 * ((100vw - 300px) / 1300));
+}
+.moveIn:hover,
+.moveOut:hover {
+    cursor: pointer;
+}
+
+
+#cityInfo {
+    white-space: pre-wrap;
+    font-size: calc(12px + 4 * ((100vw - 300px) / 1300));
+    color: rgb(150, 145, 235);
+    margin: 0 0 20px 20px;
+}
+
+.moving {
+    margin: 0 0 20px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#cardsContainer {
+    width: 100%;
+}
+
+.Card1 {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-Color: rgb(255, 255, 255, 0.3);
+    color: white;
+}
+
+.Card2 {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-Color: rgb(255, 255, 255, 0.4);
+    color: white;
+}
+
+.selectedCard {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-Color: rgb(150, 145, 235);
+    color: white;
+}
+
+.closeX {
+    position: absolute;
+    margin: 0 4px 0 4px;
+    color: rgb(134, 0, 0);
+    font-size: calc(12px + 4 * ((100vw - 300px) / 1300));
+}
+.closeX:hover {
+    cursor: default;
+}
+
+.Card1:hover{
+    background-color: rgb(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+.Card2:hover{
+    background-color: rgb(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+
+.cardHeader {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin: 10px 0px 0px 0px;
+    font-size: calc(13px + 4 * ((100vw - 300px) / 1300));
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.coord {
+    margin: 0px 0px 15px 0px;
+    font-size: calc(12px + 4 * ((100vw - 300px) / 1300));
+}
