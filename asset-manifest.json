@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/MyFirstReactApps/static/css/main.c9cc41cc.chunk.css",
+    "main.js": "/MyFirstReactApps/static/js/main.54bd7b10.chunk.js",
+    "main.js.map": "/MyFirstReactApps/static/js/main.54bd7b10.chunk.js.map",
+    "runtime-main.js": "/MyFirstReactApps/static/js/runtime-main.5abb06ad.js",
+    "runtime-main.js.map": "/MyFirstReactApps/static/js/runtime-main.5abb06ad.js.map",
+    "static/js/2.f99701a1.chunk.js": "/MyFirstReactApps/static/js/2.f99701a1.chunk.js",
+    "static/js/2.f99701a1.chunk.js.map": "/MyFirstReactApps/static/js/2.f99701a1.chunk.js.map",
+    "index.html": "/MyFirstReactApps/index.html",
+    "precache-manifest.f085593a24fb817813b9335ad8983295.js": "/MyFirstReactApps/precache-manifest.f085593a24fb817813b9335ad8983295.js",
+    "service-worker.js": "/MyFirstReactApps/service-worker.js",
+    "static/css/main.c9cc41cc.chunk.css.map": "/MyFirstReactApps/static/css/main.c9cc41cc.chunk.css.map",
+    "static/js/2.f99701a1.chunk.js.LICENSE": "/MyFirstReactApps/static/js/2.f99701a1.chunk.js.LICENSE",
+    "static/media/City.481f3486.svg": "/MyFirstReactApps/static/media/City.481f3486.svg",
+    "static/media/Handshake.166d3514.svg": "/MyFirstReactApps/static/media/Handshake.166d3514.svg",
+    "static/media/LinkedList.05f58590.svg": "/MyFirstReactApps/static/media/LinkedList.05f58590.svg",
+    "static/media/Settings.04e848f8.svg": "/MyFirstReactApps/static/media/Settings.04e848f8.svg",
+    "static/media/logo.svg": "/MyFirstReactApps/static/media/logo.25bf045c.svg",
+    "static/media/tic tac toe.c7091dd0.svg": "/MyFirstReactApps/static/media/tic tac toe.c7091dd0.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5abb06ad.js",
+    "static/js/2.f99701a1.chunk.js",
+    "static/css/main.c9cc41cc.chunk.css",
+    "static/js/main.54bd7b10.chunk.js"
+  ]
+}
