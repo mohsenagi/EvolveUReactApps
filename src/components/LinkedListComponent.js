@@ -83,6 +83,23 @@ function LinkedListDisplay() {
         list.current = current.prev;
         setTarget(list.current);
     }
+
+    let show = [];
+    let text = ``;
+    let total = 0;
+    let counter = 1;
+    let tail = list.head;
+    while(tail !== null){
+        text = `${tail.subject}:${tail.amount}`
+        if (tail === list.current) {
+            show.push(<p className="cnode" key={counter}>{text}</p>);
+        } else {
+            show.push(<p className="node" key={counter}>{text}</p>);
+        }
+        total = total + Number(tail.amount);
+        tail = tail.next;
+        counter = counter+1;
+    }
   
     return (
         <div className = "LinkedListCntroller">
@@ -103,7 +120,8 @@ function LinkedListDisplay() {
                 <input type="number" placeholder="Amount" id="amount"
                 value={amount} onChange={(e) => {setAmount(e.target.value); setFocus("amount")}} onKeyPress={enter}></input>
             </div>
-            <p className = "allNodes">{list.show()}</p>
+            <div className = "allNodes">{show}</div>
+            <div className = "total">{list.head ? `total amount: ${total}`  : ""}</div>
         </div>
     );
 }

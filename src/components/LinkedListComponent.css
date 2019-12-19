@@ -28,13 +28,32 @@
 }
 
 .allNodes {
-    white-space: pre-wrap;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
     font-style: italic;
     margin: 40px 0 0 0;
-    font-size: calc(14px + 4 * ((100vw - 300px) / 1300));
 }
 
 .currentNode {
     font-size: calc(20px + 4 * ((100vw - 300px) / 1300));
+}
+
+.total {
+    font-style: italic;
+    margin: 20px 0 0 0;
+    font-size: calc(18px + 4 * ((100vw - 300px) / 1300));
+}
+
+.cnode {
+    font-size: calc(17px + 4 * ((100vw - 300px) / 1300));
+    margin: 0px 4px 4px 4px;
+    color: rgb(74, 160, 25);
+    font-weight: bold;
+}
+
+.node {
+    font-size: calc(15px + 4 * ((100vw - 300px) / 1300));
+    margin: 0px 4px 0px 4px;
+    height: 100%;
 }

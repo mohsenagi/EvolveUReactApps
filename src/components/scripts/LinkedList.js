@@ -80,25 +80,6 @@ class LinkedList{
             return;
         }
     }
-
-    show() {
-        let show = ``;
-        let text = ``;
-        let total = 0;
-        let tail = this.head;
-        if (tail === null) return null;
-        while(tail !== null){
-            if (tail === this.current) {
-                text = `[${tail.subject}: ${tail.amount}] `
-            } else {
-                text = `${tail.subject}: ${tail.amount} `
-            }
-            total = total + Number(tail.amount);
-            show = show + text;
-            tail = tail.next;
-        }
-        return `${show}\n \n total amount: ${total}`;
-    }
 }
 
 export {ListNode, LinkedList}
