@@ -9,32 +9,15 @@ class ListNode{
     show() {
         return `subject is "${this.subject}" and amount is "${this.amount}"`
     }
-
-    deleteFrom(list) {
-        let myIndex = list.findIndex(this);
-        list.delete(myIndex);
-    }
-
-    insertAfter(list, subject, amount) {
-        let myIndex = list.findIndex(this);
-        list.insertAfterIndex(myIndex, subject, amount);
-    }
-    
 }
 
 class LinkedList{
     constructor(){
         this.head = null;
+        this.current = null;
+        this.tail = null;
     }
 
-    tail() {
-        if (!this.head) return;
-        let tail = this.head;
-        while(tail.next !== null){
-            tail = tail.next;
-        }
-        return tail;
-    }
     
     insertAtBeginning (subject, amount) {
         let newNode = new ListNode(subject, amount);
@@ -43,93 +26,78 @@ class LinkedList{
             this.head.prev = newNode;
         }
         this.head = newNode;
+        if (!this.current) this.current = newNode;
+        if (!this.tail) this.tail = newNode;
         return;
     }
     
     insertAtEnd (subject, amount){
         let newNode = new ListNode(subject, amount);
-        if(!this.head){
-            this.head = newNode;
-            return;
+        if (this.tail !== null) {
+            newNode.prev = this.tail;
+            this.tail.next = newNode;
         }
-        let tail = this.head;
-        while(tail.next !== null){
-            tail = tail.next;
-        }
-        tail.next = newNode;
-        newNode.prev = tail;
+        this.tail = newNode;
+        if (!this.current) this.current = newNode;
+        if (!this.head) this.head = newNode;
         return;
     }
     
-    insertAfterIndex (index, subject, amount) {
-        let target = this.find(index);
-        if (target === "index not found") return "index not found";
+    insertAfterCurrent (subject, amount) {
+        let target = this.current;
+        if (target === null) return;
         let newNode = new ListNode(subject, amount, target.next, target);
         if(target.next !== null) target.next.prev = newNode;
         target.next = newNode;
         return;
     }
-    
-    find(index) {
-        let target = this.head;
-        for (let counter = 0; counter < index; counter++) {
-            if(target.next === null) return "index not found"
-            target = target.next
-        }
-        if (target === null) return "index not found"
-        return target;
-    }
 
-    findIndex(itm) {
-        let tail = this.head;
-        if (tail === null) return null;
-        let counter = 0;
-        while(tail !== null){
-            if (tail === itm) return counter;
-            tail = tail.next;
-            counter = counter+1;
-        }
-        return counter;
-    }
-    
-    findAndShow(index) {
-        let target = this.find(index);
-        if (target === "index not found") return "index not found";
-        return target.show();
-    }
-
-    delete(index) {
-        let target = this.find(index);
-        if (target === "index not found") return "index not found";
+    deleteCurrent() {
+        let target = this.current;
+        if (target === null) return;
         if (target.next && target.prev) {
             target.prev.next = target.next;
             target.next.prev = target.prev;
+            this.current = target.next;
             return;
         }
         if (target.next && !target.prev) {
             target.next.prev = null;
             this.head = target.next
+            this.current = target.next;
             return;
         }
         if (!target.next && target.prev) {
             target.prev.next = null;
+            this.tail = target.prev;
+            this.current = target.prev;
             return;
         }
         if (!target.next && !target.prev) {
             this.head = null;
+            this.current = null;
+            this.tail = null;
             return;
         }
     }
 
     show() {
-        let show = [];
+        let show = ``;
+        let text = ``;
+        let total = 0;
         let tail = this.head;
         if (tail === null) return null;
         while(tail !== null){
-            show.push([tail.subject, ': ', tail.amount], ', ');
+            if (tail === this.current) {
+                text = `[${tail.subject}: ${tail.amount}] `
+            } else {
+                text = `${tail.subject}: ${tail.amount} `
+            }
+            total = total + Number(tail.amount);
+            show = show + text;
             tail = tail.next;
         }
-        return show;
+        return `${show}\n \n total amount: ${total}`;
     }
 }
 

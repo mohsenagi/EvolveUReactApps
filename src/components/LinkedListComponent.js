@@ -7,10 +7,9 @@ import {LinkedList} from './scripts/LinkedList.js'
 let list = new LinkedList();
 
 function LinkedListDisplay() {
-    // const [target, setTarget] = useState(null);
     const [subject, setSubject] = useState("");
     const [amount, setAmount] = useState("");
-    const [focus, setFocus] = useState("subject")
+    const [focus, setFocus] = useState("subject");
 
     const context = useContext (ThemeContext);
     let target = context.LinkedListTarget;
@@ -25,7 +24,7 @@ function LinkedListDisplay() {
         list.insertAtBeginning(subject, amount);
         setSubject("");
         setAmount("");
-        setTarget(list.head);
+        setTarget(list.current);
         setFocus("subject");
     }
 
@@ -34,18 +33,16 @@ function LinkedListDisplay() {
         list.insertAtEnd(subject, amount);
         setSubject("");
         setAmount("");
-        setTarget(list.tail());
+        setTarget(list.current);
         setFocus("subject");
     }
 
     function Insert () {
         if (subject === "" || amount === "") return;
-        let current = target
-        if (current === null) return;
-        current.insertAfter(list, subject, amount)
+        if (list.current === null) return;
+        list.insertAfterCurrent(subject, amount)
         setSubject("");
         setAmount("");
-        setTarget(current.next);
         setFocus("subject");
     }
     
@@ -56,36 +53,35 @@ function LinkedListDisplay() {
     }
     
     function Delete () {
-        let current = target
-        if (current === null) return;
-        if (current.next !== null) {
-            setTarget(current.next);
-        } else {
-            setTarget(current.prev);
-        }
-        current.deleteFrom(list)
+        if (list.current === null) return;
+        list.deleteCurrent()
+        setTarget(list.current);
     } 
 
     function FindStart () {
-        setTarget(list.head);
+        list.current = list.head
+        setTarget(list.current);
     }
     
     function FindEnd () {
-        setTarget(list.tail());
+        list.current = list.tail
+        setTarget(list.current);
     }
 
     function Next () {
-        let current = target
+        let current = list.current;
         if (current === null) return;
         if (current.next === null) return;
-        setTarget(current.next);
+        list.current = current.next
+        setTarget(list.current);
     }
 
     function Prev () {
-        let current = target
+        let current = list.current
         if (current === null) return;
         if (current.prev === null) return;
-        setTarget(current.prev);
+        list.current = current.prev;
+        setTarget(list.current);
     }
   
     return (
