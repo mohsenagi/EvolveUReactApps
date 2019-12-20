@@ -54,7 +54,6 @@
 }
 
 .cnode {
-    max-width: 98%;
     font-size: calc(17px + 4 * ((100vw - 300px) / 1300));
     margin: 0px 6px 4px 6px;
     color: rgb(74, 160, 25);
@@ -64,7 +63,6 @@
 }
 
 .node {
-    max-width: 98%;
     font-size: calc(15px + 4 * ((100vw - 300px) / 1300));
     margin: 0px 5px 0px 5px;
     height: 100%;
