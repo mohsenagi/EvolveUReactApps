@@ -30,13 +30,21 @@
 .allNodes {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: flex-end;
     font-style: italic;
     margin: 40px 0 0 0;
+    flex-wrap: wrap;
+    max-width: 98%;
+    word-wrap: break-word;
+
 }
 
 .currentNode {
+    max-width: 98%;
     font-size: calc(20px + 4 * ((100vw - 300px) / 1300));
+    text-align: center;
+    word-wrap: break-word;
 }
 
 .total {
@@ -46,14 +54,20 @@
 }
 
 .cnode {
+    max-width: 98%;
     font-size: calc(17px + 4 * ((100vw - 300px) / 1300));
-    margin: 0px 4px 4px 4px;
+    margin: 0px 6px 4px 6px;
     color: rgb(74, 160, 25);
     font-weight: bold;
+    word-wrap: break-word;
+    text-align: center;
 }
 
 .node {
+    max-width: 98%;
     font-size: calc(15px + 4 * ((100vw - 300px) / 1300));
-    margin: 0px 4px 0px 4px;
+    margin: 0px 5px 0px 5px;
     height: 100%;
+    word-wrap: break-word;
+    text-align: center;
 }

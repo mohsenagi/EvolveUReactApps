@@ -48,6 +48,7 @@ class LinkedList{
         if (target === null) return;
         let newNode = new ListNode(subject, amount, target.next, target);
         if(target.next !== null) target.next.prev = newNode;
+        if(target.next === null) this.tail = newNode;
         target.next = newNode;
         return;
     }
