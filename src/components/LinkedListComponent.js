@@ -53,34 +53,27 @@ function LinkedListDisplay() {
     }
     
     function Delete () {
-        if (list.current === null) return;
         list.deleteCurrent()
         setTarget(list.current);
     } 
 
     function FindStart () {
-        list.current = list.head
+        list.first();
         setTarget(list.current);
     }
     
     function FindEnd () {
-        list.current = list.tail
+        list.last();
         setTarget(list.current);
     }
 
     function Next () {
-        let current = list.current;
-        if (current === null) return;
-        if (current.next === null) return;
-        list.current = current.next
+        list.next();
         setTarget(list.current);
     }
 
     function Prev () {
-        let current = list.current
-        if (current === null) return;
-        if (current.prev === null) return;
-        list.current = current.prev;
+        list.prev();
         setTarget(list.current);
     }
 

@@ -18,7 +18,26 @@ class LinkedList{
         this.tail = null;
     }
 
-    
+    next() {
+        if (this.current === null) return;
+        if (this.current.next === null) return;
+        this.current = this.current.next;
+    }
+
+    prev () {
+        if (this.current === null) return;
+        if (this.current.prev === null) return;
+        this.current = this.current.prev;
+    }
+
+    last () {
+        this.current = this.tail;
+    }
+
+    first () {
+        this.current = this.head;
+    }
+
     insertAtBeginning (subject, amount) {
         let newNode = new ListNode(subject, amount);
         if (this.head !== null) {
