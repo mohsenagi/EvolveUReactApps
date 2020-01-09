@@ -94,12 +94,27 @@ h2 {
     height: 100px;
 }
 
-.wholeCity {
+.cityANDmap {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wholeCity {
+    width: 90%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.mapDiv {
+    position: relative;
+    width: calc(150px + 450 * ((100vw - 300px) / 1300));
+    height: calc(150px + 450 * ((100vw - 300px) / 1300));
+    margin: 20px 0 20px 20px;
+    color: black;
 }
 
 #input5 {
@@ -212,7 +227,7 @@ h2 {
     grid-column-start: 1;
     grid-column-end: 3;
     margin: 10px 0px 0px 0px;
-    font-size: calc(13px + 4 * ((100vw - 300px) / 1300));
+    font-size: calc(14px + 4 * ((100vw - 300px) / 1300));
     font-family: Arial, Helvetica, sans-serif;
 }
 

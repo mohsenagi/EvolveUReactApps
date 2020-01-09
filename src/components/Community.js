@@ -3,6 +3,7 @@ import './Community.css';
 
 import {Community} from './scripts/CityAndCommunity.js'
 import fetchfunctions from './scripts/fetch.js'
+import MapContainer from './map.js'
 
 class Card extends React.Component {
     render() {
@@ -15,8 +16,8 @@ class Card extends React.Component {
                 {this.props.selected === city.key &&
                 <p className="closeX" onClick={() => this.props.delete(city.key)}>✖</p>}
                 <p className = "cardHeader">{city.Name}</p>
-                <p className = "coord">Latitude: {city.Latitude}</p>
-                <p className = "coord">Longitude: {city.Longitude}</p>
+                <p className = "coord">Lat: {city.Latitude}</p>
+                <p className = "coord">Long: {city.Longitude}</p>
             </div>
         )
     }
@@ -127,21 +128,30 @@ class CityandCommunity extends React.Component {
         if (this.state.message.includes("Please wait ...")) return
         let newCommunity = this.state.community;
         let message = `The total population of the community is ${newCommunity.getPopulation()}`
-        this.setState({message: message})
+        this.setState({
+            message: message,
+            selected: false
+        })
     }
     north = () => {
         if (this.state.message.includes("Please wait ...")) return
         let newCommunity = this.state.community;
         let MostNorthern = newCommunity.getMostNorthern();
         let message = `${MostNorthern.Name} is the most southern city with the latitude of ${MostNorthern.Latitude}.`
-        this.setState({message: message})
+        this.setState({
+            message: message,
+            selected: MostNorthern.key
+        })
     }
     south = () => {
         if (this.state.message.includes("Please wait ...")) return
         let newCommunity = this.state.community;
         let MostSouthern = newCommunity.getMostSouthern();
         let message = `${MostSouthern.Name} is the most southern city with the latitude of ${MostSouthern.Latitude}.`
-        this.setState({message: message})
+        this.setState({
+            message: message,
+            selected: MostSouthern.key
+        })
     }
 
     moveIn = async () => {
@@ -256,15 +266,20 @@ class CityandCommunity extends React.Component {
                 <div id="rightSide">
                     <p id="display">{this.state.message}</p>
                     {this.state.selected &&
-                    <div className = "wholeCity">
-                        <div className = "cityDisplay">
-                            {cityInfo}
+                    <div className = "cityANDmap">
+                        <div className = "wholeCity">
+                            <div className = "cityDisplay">
+                                {cityInfo}
+                            </div>
+                            <div className = "moving">
+                                <input type="number" placeholder="Number of people" id="input5" name="movingNumber"
+                                value={this.state.movingNumber} onChange={this.handleChange}></input>
+                                <button className="moveIn" onClick ={this.moveIn} >Moved In</button>
+                                <button className="moveOut" onClick ={this.moveOut}>Moved Out</button>
+                            </div>
                         </div>
-                        <div className = "moving">
-                            <input type="number" placeholder="Number of people" id="input5" name="movingNumber"
-                            value={this.state.movingNumber} onChange={this.handleChange}></input>
-                            <button className="moveIn" onClick ={this.moveIn} >Moved In</button>
-                            <button className="moveOut" onClick ={this.moveOut}>Moved Out</button>
+                        <div className = "mapDiv">
+                            <MapContainer selectedCity = {selectedCity} />
                         </div>
                     </div>
                     }
