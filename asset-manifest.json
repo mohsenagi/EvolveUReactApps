@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/MyFirstReactApps/static/css/main.030f1f11.chunk.css",
-    "main.js": "/MyFirstReactApps/static/js/main.06f3239c.chunk.js",
-    "main.js.map": "/MyFirstReactApps/static/js/main.06f3239c.chunk.js.map",
-    "runtime-main.js": "/MyFirstReactApps/static/js/runtime-main.5abb06ad.js",
-    "runtime-main.js.map": "/MyFirstReactApps/static/js/runtime-main.5abb06ad.js.map",
-    "static/js/2.f99701a1.chunk.js": "/MyFirstReactApps/static/js/2.f99701a1.chunk.js",
-    "static/js/2.f99701a1.chunk.js.map": "/MyFirstReactApps/static/js/2.f99701a1.chunk.js.map",
-    "index.html": "/MyFirstReactApps/index.html",
-    "precache-manifest.ac41b880c6f976c72a49cf0685547784.js": "/MyFirstReactApps/precache-manifest.ac41b880c6f976c72a49cf0685547784.js",
-    "service-worker.js": "/MyFirstReactApps/service-worker.js",
-    "static/css/main.030f1f11.chunk.css.map": "/MyFirstReactApps/static/css/main.030f1f11.chunk.css.map",
-    "static/js/2.f99701a1.chunk.js.LICENSE": "/MyFirstReactApps/static/js/2.f99701a1.chunk.js.LICENSE",
-    "static/media/City.481f3486.svg": "/MyFirstReactApps/static/media/City.481f3486.svg",
-    "static/media/Handshake.166d3514.svg": "/MyFirstReactApps/static/media/Handshake.166d3514.svg",
-    "static/media/LinkedList.05f58590.svg": "/MyFirstReactApps/static/media/LinkedList.05f58590.svg",
-    "static/media/Settings.04e848f8.svg": "/MyFirstReactApps/static/media/Settings.04e848f8.svg",
-    "static/media/logo.svg": "/MyFirstReactApps/static/media/logo.25bf045c.svg",
-    "static/media/tic tac toe.c7091dd0.svg": "/MyFirstReactApps/static/media/tic tac toe.c7091dd0.svg"
+    "main.css": "/static/css/main.003b6737.chunk.css",
+    "main.js": "/static/js/main.72bf6cd6.chunk.js",
+    "main.js.map": "/static/js/main.72bf6cd6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1c93e91b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1c93e91b.js.map",
+    "static/js/2.60edbc48.chunk.js": "/static/js/2.60edbc48.chunk.js",
+    "static/js/2.60edbc48.chunk.js.map": "/static/js/2.60edbc48.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.33526f71277ebbb73fd0e5d7afd67501.js": "/precache-manifest.33526f71277ebbb73fd0e5d7afd67501.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.003b6737.chunk.css.map": "/static/css/main.003b6737.chunk.css.map",
+    "static/js/2.60edbc48.chunk.js.LICENSE": "/static/js/2.60edbc48.chunk.js.LICENSE",
+    "static/media/City.481f3486.svg": "/static/media/City.481f3486.svg",
+    "static/media/Handshake.166d3514.svg": "/static/media/Handshake.166d3514.svg",
+    "static/media/LinkedList.05f58590.svg": "/static/media/LinkedList.05f58590.svg",
+    "static/media/Settings.04e848f8.svg": "/static/media/Settings.04e848f8.svg",
+    "static/media/logo.svg": "/static/media/logo.25bf045c.svg",
+    "static/media/tic tac toe.c7091dd0.svg": "/static/media/tic tac toe.c7091dd0.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.5abb06ad.js",
-    "static/js/2.f99701a1.chunk.js",
-    "static/css/main.030f1f11.chunk.css",
-    "static/js/main.06f3239c.chunk.js"
+    "static/js/runtime-main.1c93e91b.js",
+    "static/js/2.60edbc48.chunk.js",
+    "static/css/main.003b6737.chunk.css",
+    "static/js/main.72bf6cd6.chunk.js"
   ]
 }
