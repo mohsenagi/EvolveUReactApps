@@ -1,1 +1,1 @@
-To see the final project, click on https://mohsenagi.github.io/MyFirstReactApps/
+This app is currently deployed on github pages at https://mohsenagi.github.io/MyFirstReactApps/
