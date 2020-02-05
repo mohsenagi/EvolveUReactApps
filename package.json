@@ -10,6 +10,13 @@
     "react-dom": "^16.11.0",
     "react-scripts": "^3.3.0"
   },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "jest": "^24.9.0",
+    "node-fetch": "^2.6.0",
+    "whatwg-fetch": "^3.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

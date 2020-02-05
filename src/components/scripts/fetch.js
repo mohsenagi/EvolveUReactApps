@@ -32,14 +32,8 @@ const fetchfunctions = {
     async load(newCommunity) {
         let data = await this.postData(url + 'all');
         if (data.length !== 0) {
-            newCommunity.Cities = data.map(itm => new City(itm.key, itm.Name, itm.Latitude, itm.Longitude, itm.Population))
-            let keysArray = newCommunity.Cities.map(itm => itm.key)
-            keysArray.sort((a, b) => b-a);
-            let highestKey = keysArray[0];
-            return highestKey
+            newCommunity.Cities = data.map(itm => new City(itm.id, itm.Name, itm.Latitude, itm.Longitude, itm.Population))
         }
-        let highestKey = 0
-        return highestKey
     },
 
     async clear() {
