@@ -3,10 +3,10 @@ from sqlalchemy import create_engine, Table, MetaData, select
 
 app = Flask(__name__)
 
-engine = create_engine('postgres://dgukymdz:DpVLzd7168HbZR_AnikqrxwCGVbrDuIy@rajje.db.elephantsql.com:5432/dgukymdz')
+engine = create_engine('postgres://dgukymdz:Hxiv4RLkcsflv7Tg4veHc4jCSwzrfHTS@rajje.db.elephantsql.com:5432/dgukymdz')
 connection = engine.connect()
 metadata = MetaData()
-city = Table('city', metadata, autoload=True, autoload_with=engine)
+city = Table('city', metadata, autoload=True, autoload_with=engine) # Reflecting Database Objects
 
 @app.route("/")
 def home():
