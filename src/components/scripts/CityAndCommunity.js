@@ -1,5 +1,5 @@
 class City {
-    constructor (Key, Name, Latitude, Longitude, Population) {
+    constructor (Key=null, Name, Latitude, Longitude, Population) {
         this.key = Key;
         this.Name = Name;
         this.Latitude = Latitude;

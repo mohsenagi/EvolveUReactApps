@@ -1,7 +1,7 @@
 import React from 'react';
 import './Community.css';
 
-import {Community} from './scripts/CityAndCommunity.js'
+import {Community, City} from './scripts/CityAndCommunity.js'
 import fetchfunctions from './scripts/fetch.js'
 import MapContainer from './map.js'
 
@@ -29,7 +29,6 @@ class CityandCommunity extends React.Component {
         this.state = {
             message: "Please wait ...",
             community: new Community(),
-            counter: 1,
             selected: false,
             newCityName: "",
             newCityLat: "",
@@ -41,19 +40,17 @@ class CityandCommunity extends React.Component {
     }
     componentDidMount(){
         let newCommunity = new Community();
-        let counter
-        let highestKey = fetchfunctions.load(newCommunity);
-        highestKey.then(result => {
-            if (newCommunity.Cities.length >= 1) {
-                counter = result+1;
+        let howManyCities = fetchfunctions.load(newCommunity);
+        howManyCities.then(result => {
+            if (result >= 1) {
                 this.setState({
                     message : `Server data successfully loaded.\n`+
                     `There are currently ${newCommunity.Cities.length} Cities.`
                 })
-                this.setState({community : newCommunity, counter : counter})
+                this.setState({community : newCommunity})
             } else{
                 this.setState({
-                    message : `Loading major Canadian Cities to the server.\nPlease wait ...`
+                    message : `Loading Canadian Cities and Towns to the server.\nPlease wait ...`
                 })
                 this.loadCanada()
             }
@@ -70,18 +67,20 @@ class CityandCommunity extends React.Component {
         let newCommunity = this.state.community;
         for (let i=0; i < cityCana.length; i++) {
             let itm = cityCana[i];
-            newCommunity.addNewCity(i+1, itm.city,
-            Number(itm.lat), Number(itm.lng), Number(itm.population));
-            await fetchfunctions.addNew(newCommunity.Cities.filter((itm) => itm.key === i+1)[0]);
+            let newCity = new City(null, itm.city, Number(itm.lat), Number(itm.lng), Number(itm.population));
+            let response = await fetchfunctions.addNew(newCity);
+            let {id, Name, Latitude, Longitude, Population} = response[0];
+            newCommunity.addNewCity(id, Name, Latitude, Longitude, Population)
             await this.setState({
-                message : `Loading major Canadian Cities to the server.\nPlease wait ...\n${i+1} out of ${cityCana.length} Cities have benn added.`
+                message : `Loading Canadian Cities and Towns to the server.\nPlease wait ...\n${i+1} out of ${cityCana.length} Cities have benn added.`
             });
         };
         this.setState({
-            message : `major Canadian Cities successfully loaded.\n`+
+            message : `Canadian Cities and Towns successfully loaded.\n`+
             `There are currently ${newCommunity.Cities.length} Cities.`,
             counter : newCommunity.Cities.length+1
         })
+        console.log(newCommunity.Cities);        
     }
 
     delete = async (key) => {
@@ -105,11 +104,14 @@ class CityandCommunity extends React.Component {
         if (this.state.newCityName !== "" && this.state.newCityLat !== "" && this.state.newCityLong !== ""){
             this.setState({message: "Please wait ..."})
             let newCommunity = this.state.community;
-            let message = newCommunity.addNewCity(this.state.counter, this.state.newCityName,
-                Number(this.state.newCityLat), Number(this.state.newCityLong), Number(this.state.newCityPop));
+            let message = newCommunity.addNewCity(0, this.state.newCityName, Number(this.state.newCityLat), Number(this.state.newCityLong), Number(this.state.newCityPop));
             if (message.includes("added")) {
+                newCommunity.removeCity(0)
                 try {
-                    await fetchfunctions.addNew(newCommunity.Cities.filter((itm) => itm.key === this.state.counter)[0]);
+                    let newCity = new City(null, this.state.newCityName, Number(this.state.newCityLat), Number(this.state.newCityLong), Number(this.state.newCityPop))
+                    let response = await fetchfunctions.addNew(newCity);
+                    let {id, Name, Latitude, Longitude, Population} = response[0];
+                    newCommunity.addNewCity(id, Name, Latitude, Longitude, Population)
                     this.setState({
                                 newCityName: "",
                                 newCityLat: "",

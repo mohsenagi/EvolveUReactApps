@@ -1,5 +1,5 @@
 import {City} from './CityAndCommunity.js'
-const url = 'http://localhost:5000/';
+const url = 'https://my-first-react-app-server.herokuapp.com/';
 
 const fetchfunctions = {
     async postData(url = '', data = {}) {
@@ -34,6 +34,7 @@ const fetchfunctions = {
         if (data.length !== 0) {
             newCommunity.Cities = data.map(itm => new City(itm.id, itm.Name, itm.Latitude, itm.Longitude, itm.Population))
         }
+        return newCommunity.Cities.length
     },
 
     async clear() {
