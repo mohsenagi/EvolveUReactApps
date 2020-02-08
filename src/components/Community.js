@@ -80,7 +80,6 @@ class CityandCommunity extends React.Component {
             `There are currently ${newCommunity.Cities.length} Cities.`,
             counter : newCommunity.Cities.length+1
         })
-        console.log(newCommunity.Cities);        
     }
 
     delete = async (key) => {
