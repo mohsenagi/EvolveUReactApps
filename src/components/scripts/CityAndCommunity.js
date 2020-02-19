@@ -7,7 +7,7 @@ class City {
         this.Population = Population;
     }
     show() {
-        return `Name: ${this.Name}\nLatitude: ${this.Latitude}\nLongitude: ${this.Longitude}\nPopulation: ${this.Population}`;
+        return `Name: ${this.Name}\nLatitude: ${this.Latitude}\nLongitude: ${this.Longitude}\nPopulation: ${this.Population}\nHemisphere: ${this.whichHemisphere}`;
     }
     async movedIn(num) {
         this.Population += num;
@@ -35,9 +35,13 @@ class Community {
     addNewCity (Key, Name, Latitude, Longitude, Population) {
         let message;
         if (this.Cities.filter((itm) => (itm.Latitude === Latitude && itm.Longitude === Longitude)).length === 0) {
-            let newCity = new City (Key, Name, Latitude, Longitude, Population);
-            this.Cities.push(newCity);
-            message = `The new City has been added.\nName: ${Name}`
+            if (Population < 0 || Latitude < -90 || Latitude > 90 || Longitude < -180 || Longitude > 180) {
+                message = 'A city with current inputs cannot be exist.'
+            } else {
+                let newCity = new City (Key, Name, Latitude, Longitude, Population);
+                this.Cities.push(newCity);
+                message = `The new City has been added.\nName: ${Name}`
+            }
         } else {
             message = `There is already a city with the same latitude and longitude.\nPlease edit your inputs.`
         }

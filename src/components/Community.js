@@ -165,13 +165,17 @@ class CityandCommunity extends React.Component {
             let selectedCity = newCommunity.Cities.filter(itm => itm.key === key)[0];
             let selectedCityName = selectedCity.Name;
             let number = Number(this.state.movingNumber)
-            selectedCity.movedIn(number)
-            try {
-                await fetchfunctions.update(selectedCity)
-                message = `${number} people has moved in to ${selectedCityName}.`
-            }catch(error){
-                message = `We are sorry!! something went wrong while saving data.\n${error}`
-                selectedCity.movedOut(number);
+            if (number > 0) {
+                selectedCity.movedIn(number)
+                try {
+                    await fetchfunctions.update(selectedCity)
+                    message = `${number} people has moved in to ${selectedCityName}.`
+                }catch(error){
+                    message = `We are sorry!! something went wrong while saving data.\n${error}`
+                    selectedCity.movedOut(number);
+                }
+            } else {
+                message = 'The number of people moving in should be greater than zero.'
             }
             this.setState({message: message, movingNumber: ""})
         }
@@ -188,14 +192,19 @@ class CityandCommunity extends React.Component {
             let selectedCity = newCommunity.Cities.filter(itm => itm.key === key)[0];
             let selectedCityName = selectedCity.Name;
             let number = Number(this.state.movingNumber)
-            selectedCity.movedOut(number)
-            try {
-                await fetchfunctions.update(selectedCity)
-                message = `${number} people has moved in to ${selectedCityName}.`
-            }catch(error){
-                message = `We are sorry!! something went wrong while saving data.\n${error}`
-                selectedCity.movedIn(number);
+            if (number >= selectedCity.Population) {
+                selectedCity.movedOut(number)
+                try {
+                    await fetchfunctions.update(selectedCity)
+                    message = `${number} people has moved out of ${selectedCityName}.`
+                }catch(error){
+                    message = `We are sorry!! something went wrong while saving data.\n${error}`
+                    selectedCity.movedIn(number);
+                }
+            } else {
+                message = 'The number of people moving out should not be greater than current population.'
             }
+
             this.setState({message: message, movingNumber: ""})
         }
 
