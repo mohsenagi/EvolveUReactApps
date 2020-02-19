@@ -192,7 +192,11 @@ class CityandCommunity extends React.Component {
             let selectedCity = newCommunity.Cities.filter(itm => itm.key === key)[0];
             let selectedCityName = selectedCity.Name;
             let number = Number(this.state.movingNumber)
-            if (number <= selectedCity.Population && number>0) {
+            if (number < 0) {
+                message = 'The number of people moving out should be greater than zero.'
+            } else if (number > selectedCity.Population) {
+                message = 'The number of people moving out should not be greater than current population.'
+            } else {
                 selectedCity.movedOut(number)
                 try {
                     await fetchfunctions.update(selectedCity)
@@ -201,10 +205,7 @@ class CityandCommunity extends React.Component {
                     message = `We are sorry!! something went wrong while saving data.\n${error}`
                     selectedCity.movedIn(number);
                 }
-            } else {
-                message = 'The number of people moving out should not be greater than current population.'
             }
-
             this.setState({message: message, movingNumber: ""})
         }
 

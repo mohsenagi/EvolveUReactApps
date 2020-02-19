@@ -23,8 +23,9 @@ class City {
         if (this.Population > 100000) return "City";
     }
     whichHemisphere () {
-        if (this.Latitude <=0) return "Southern Hemisphere";
+        if (this.Latitude <0) return "Southern Hemisphere";
         if (this.Latitude >0) return "Northern Hemisphere";
+        if (this.Latitude === 0) return "Equator";
     }
 }
 
@@ -36,7 +37,7 @@ class Community {
         let message;
         if (this.Cities.filter((itm) => (itm.Latitude === Latitude && itm.Longitude === Longitude)).length === 0) {
             if (Population < 0 || Latitude < -90 || Latitude > 90 || Longitude < -180 || Longitude > 180) {
-                message = 'A city with current inputs cannot be exist.'
+                message = 'A city with current inputs cannot exist.'
             } else {
                 let newCity = new City (Key, Name, Latitude, Longitude, Population);
                 this.Cities.push(newCity);
