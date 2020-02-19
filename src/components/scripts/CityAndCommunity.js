@@ -7,7 +7,7 @@ class City {
         this.Population = Population;
     }
     show() {
-        return `Name: ${this.Name}\nLatitude: ${this.Latitude}\nLongitude: ${this.Longitude}\nPopulation: ${this.Population}\nHemisphere: ${this.whichHemisphere}`;
+        return `Name: ${this.Name}\nLatitude: ${this.Latitude}\nLongitude: ${this.Longitude}\nPopulation: ${this.Population}\nHemisphere: ${this.whichHemisphere()}`;
     }
     async movedIn(num) {
         this.Population += num;

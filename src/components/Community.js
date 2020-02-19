@@ -192,7 +192,7 @@ class CityandCommunity extends React.Component {
             let selectedCity = newCommunity.Cities.filter(itm => itm.key === key)[0];
             let selectedCityName = selectedCity.Name;
             let number = Number(this.state.movingNumber)
-            if (number >= selectedCity.Population) {
+            if (number <= selectedCity.Population && number>0) {
                 selectedCity.movedOut(number)
                 try {
                     await fetchfunctions.update(selectedCity)
