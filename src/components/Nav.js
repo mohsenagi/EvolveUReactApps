@@ -5,7 +5,7 @@ class Nav extends React.Component {
     render () {
         return (
             <div className="IconsContainer">
-                <h1>My First React Apps</h1>
+                <h1>EvolveU React Apps</h1>
             </div>
         );
     }
