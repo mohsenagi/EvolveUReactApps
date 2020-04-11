@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/EvolveUReactApps/precache-manifest.4f8e4c9ea8bccdfb2f9e61a5223445d5.js"
+  "/EvolveUReactApps/precache-manifest.dea74b2c28558fb532cd57ef3370b02a.js"
 );
 
 self.addEventListener('message', (event) => {
