@@ -29,21 +29,21 @@ test("addNew and Load", async () => {
         "Longitude": -114.0973, 
         "Population": 15000,
     });
-    data = await fetchfunctions.addNew({
-        "Name": "South Brisbane", 
-        "Latitude": -27.4766, 
-        "Longitude": 153.0167, 
-        "Population": 60000,
-    });
-    data = await fetchfunctions.addNew({
-        "Name": "Calgary", 
-        "Latitude": 51.0447, 
-        "Longitude": -114.0719, 
-        "Population": 1200000,
-    });
+    // data = await fetchfunctions.addNew({
+    //     "Name": "South Brisbane", 
+    //     "Latitude": -27.4766, 
+    //     "Longitude": 153.0167, 
+    //     "Population": 60000,
+    // });
+    // data = await fetchfunctions.addNew({
+    //     "Name": "Calgary", 
+    //     "Latitude": 51.0447, 
+    //     "Longitude": -114.0719, 
+    //     "Population": 1200000,
+    // });
     let newCommunity = new Community;
     await fetchfunctions.load(newCommunity);
-    expect(newCommunity.Cities.length).toEqual(5)
+    expect(newCommunity.Cities.length).toEqual(3)
 });
 test ("Update", async () => {
     let newCommunity = new Community;
@@ -65,5 +65,5 @@ test ("delete", async() => {
     let key1 = newCommunity.Cities.filter(itm => itm.Name === 'Yumai')[0]['key']
     await fetchfunctions.delete(key1);
     await fetchfunctions.load(newCommunity);
-    expect(newCommunity.Cities.length).toEqual(4);
+    expect(newCommunity.Cities.length).toEqual(2);
 });

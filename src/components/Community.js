@@ -69,8 +69,8 @@ class CityandCommunity extends React.Component {
             let itm = cityCana[i];
             let newCity = new City(null, itm.city, Number(itm.lat), Number(itm.lng), Number(itm.population));
             let response = await fetchfunctions.addNew(newCity);
-            let {id, Name, Latitude, Longitude, Population} = response[0];
-            newCommunity.addNewCity(id, Name, Latitude, Longitude, Population)
+            newCity.key = response[0].id;
+            newCommunity.addNewCity(newCity.key, newCity.Name, newCity.Latitude, newCity.Longitude, newCity.Population)
             await this.setState({
                 message : `Loading Canadian Cities and Towns to the server.\nPlease wait ...\n${i+1} out of ${cityCana.length} Cities have benn added.`
             });
@@ -109,8 +109,8 @@ class CityandCommunity extends React.Component {
                 try {
                     let newCity = new City(null, this.state.newCityName, Number(this.state.newCityLat), Number(this.state.newCityLong), Number(this.state.newCityPop))
                     let response = await fetchfunctions.addNew(newCity);
-                    let {id, Name, Latitude, Longitude, Population} = response[0];
-                    newCommunity.addNewCity(id, Name, Latitude, Longitude, Population)
+                    newCity.key = response[0].id;
+                    newCommunity.addNewCity(newCity.key, newCity.Name, newCity.Latitude, newCity.Longitude, newCity.Population)
                     this.setState({
                                 newCityName: "",
                                 newCityLat: "",
